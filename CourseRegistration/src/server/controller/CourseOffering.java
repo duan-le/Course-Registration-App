@@ -1,4 +1,4 @@
-package Server;
+package server.controller;
 import java.util.ArrayList;
 import java.util.Iterator;
 

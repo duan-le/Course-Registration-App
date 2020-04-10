@@ -1,4 +1,4 @@
-package Server;
+package server.controller;
 import java.util.ArrayList;
 
 //This class is simulating a database for our

@@ -1,4 +1,4 @@
-package Server;
+package server.controller;
 import java.util.Scanner;
 
 public class RegistrationApp {
