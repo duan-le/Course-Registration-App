@@ -1,4 +1,4 @@
-package server.controller;
+package Server;
 public class Registration {
 	private Student theStudent;
 	private CourseOffering theOffering;

@@ -1,4 +1,8 @@
-package server.controller;
+package Server;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -30,24 +34,30 @@ public class Student {
 		offeringListSize--;
 	}
 	
-	public void printAllStudentCourses()
+	public void printAllStudentCourses(Socket s)
 	{
-		Iterator<CourseOffering> iterator = offeringList.iterator();
-		int i=0;
-		if(offeringListSize!=0)
-		{
-			System.out.println("Here are your courses: ");
-			while(iterator.hasNext() && i<offeringListSize)
+		try {
+			PrintWriter socketOut = new PrintWriter(s.getOutputStream());
+			Iterator<CourseOffering> iterator = offeringList.iterator();
+			int i=0;
+			if(offeringListSize!=0)
 			{
-				int temp = i+1;
-				System.out.print(temp + ": " + offeringList.get(i));
-				System.out.println();
-				i++;
+				socketOut.println("Here are your courses: ");
+				while(iterator.hasNext() && i<offeringListSize)
+				{
+					int temp = i+1;
+					socketOut.println(temp + ": " + offeringList.get(i));
+					socketOut.println();
+					i++;
+				}	
+				socketOut.println();
 			}
-			System.out.println();
-		}
-		else
-			System.out.println(studentName + " currently has no courses. ");
+			else
+				socketOut.println(studentName + " currently has no courses. ");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 	}
 	public String getStudentName() {
 		return studentName;

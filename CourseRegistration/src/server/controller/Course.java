@@ -1,4 +1,4 @@
-package server.controller;
+package Server;
 import java.util.ArrayList;
 
 public class Course {
@@ -63,4 +63,7 @@ public class Course {
 			return offeringList.get(i);
 	}
 
+	public ArrayList<CourseOffering> getOfferingList(){
+		return offeringList;
+	}
 }
