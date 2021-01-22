@@ -1,2 +1,2 @@
-# ENSF-409-Final-Project
-A client-server application for course registration.
+# Course Registration App
+A client-server course registration application for ENSF 409 final project.
